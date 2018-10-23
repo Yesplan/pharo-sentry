@@ -149,10 +149,10 @@ SentryClient >> initialize [
 	context := SentryContext new.
 	appPackages := #().
 	self resetBreadcrumbs.
-	isInApp := [ :aMethod | 
+	isInApp := [ :aMethod :aMethodClass | 
 	self appPackages isString
-		ifTrue: [ self appPackages asRegex search: aMethod methodClass package name ]
-		ifFalse: [ self appPackages includes: aMethod methodClass package ] ].
+		ifTrue: [ self appPackages asRegex search: aMethodClass package name ]
+		ifFalse: [ self appPackages includes: aMethodClass package ] ].
 	beforeSend := [ :anEvent |  ]
 ]
 
@@ -162,8 +162,8 @@ SentryClient >> isEnabled [
 ]
 
 { #category : #testing }
-SentryClient >> isMethodInApp: aMethod [
-	^ isInApp value: aMethod
+SentryClient >> isMethodInApp: aMethod methodClass: aMethodClass [
+	^ isInApp value: aMethod value: aMethodClass
 ]
 
 { #category : #accessing }
@@ -216,15 +216,16 @@ SentryClient >> sendSampleMessage [
 { #category : #extraction }
 SentryClient >> stacktraceFor: anException [
 	| frames |
-	frames := anException signalerContext stack
-		collect: [ :ctx | 
-			| method interval |
-			method := ctx method.
-			interval := ctx debuggerMap rangeForPC: ctx pc.
+	frames := (GRPlatform current framesForException: anException)
+		collect: [ :frame | 
+			| method ctx methodClass |
+			method := frame at: 'method'.
+			ctx := frame at: 'context'.
+			methodClass := frame at: 'methodClass'.
 			SentryFrame new
-				method: method;
-				code: ctx sourceCode start: interval first;
-				inApp: (self isMethodInApp: method);
+				method: method methodClass: methodClass;
+				code: (frame at: 'methodSource') start: (frame at: 'methodStart');
+				inApp: (self isMethodInApp: method methodClass: methodClass);
 				vars:
 					{'_receiver' -> (ctx receiver printStringLimitedTo: 120).
 					'_context' -> (ctx printStringLimitedTo: 120)} asDictionary ].

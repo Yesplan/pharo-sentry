@@ -52,20 +52,26 @@ SentryFrameTest >> testAsDictionaryFull [
 
 { #category : #tests }
 SentryFrameTest >> testFiletreeFileName [
+	| method |
+	method := SentryClient >> #dsn: .
 	self
-		assert: (SentryFrame new filetreeFileNameFor: SentryClient >> #dsn:)
+		assert: (SentryFrame new filetreeFileNameFor: method methodClass: method methodClass)
 		equals: 'Sentry-Core.package/SentryClient.class/instance/dsn..st'.
+	method := SentryClient class >> #dsn: .
 	self
-		assert: (SentryFrame new filetreeFileNameFor: SentryClient class >> #dsn:)
+		assert: (SentryFrame new filetreeFileNameFor: method methodClass: method methodClass)
 		equals: 'Sentry-Core.package/SentryClient.class/class/dsn..st'
 ]
 
 { #category : #tests }
 SentryFrameTest >> testTonelFileName [
+	| method |
+	method := SentryClient >> #dsn: .
 	self
-		assert: (SentryFrame new tonelFileNameFor: SentryClient >> #dsn:)
+		assert: (SentryFrame new tonelFileNameFor: method methodClass: method methodClass)
 		equals: 'Sentry-Core/SentryClient.class.st'.
+	method := SentryClient class >> #dsn: .
 	self
-		assert: (SentryFrame new tonelFileNameFor: SentryClient class >> #dsn:)
+		assert: (SentryFrame new tonelFileNameFor: method methodClass: method methodClass)
 		equals: 'Sentry-Core/SentryClient.class.st'
 ]

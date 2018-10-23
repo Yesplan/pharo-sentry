@@ -171,11 +171,11 @@ SentryClientTest >> testIsMethodInApp [
 	| method |
 	method := SentryClientTest >> #testIsMethodInApp.
 	client appPackages: 'Sentry-Tests'.
-	self assert: (client isMethodInApp: method).
+	self assert: (client isMethodInApp: method methodClass: method methodClass).
 	client appPackages: {'Sentry-Tests' asPackage}.
-	self assert: (client isMethodInApp: method).
+	self assert: (client isMethodInApp: method methodClass: method methodClass).
 	client appPackages: 'Kernel'.
-	self deny: (client isMethodInApp: method)
+	self deny: (client isMethodInApp: method methodClass: method methodClass)
 ]
 
 { #category : #'tests - extraction' }
@@ -222,13 +222,10 @@ SentryClientTest >> testRecordBreadcrumbIn [
 { #category : #'tests - validation' }
 SentryClientTest >> testValidateDsn [
 	self
-		shouldnt: [ client validateDsn: 'https://public:secret@sentry.example.com/1' asZnUrl ]
+		shouldnt: [ client validateDsn: 'https://public@sentry.example.com/1' asZnUrl ]
 		raise: AssertionFailure.
 	self
 		should: [ client validateDsn: 'public:secret@sentry.example.com/1' asZnUrl ]
-		raise: AssertionFailure.
-	self
-		should: [ client validateDsn: 'https://secret@sentry.example.com/1' asZnUrl ]
 		raise: AssertionFailure.
 	self
 		should: [ client validateDsn: 'https://secret@sentry.example.com/' asZnUrl ]

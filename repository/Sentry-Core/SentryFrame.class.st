@@ -72,8 +72,8 @@ SentryFrame >> contextLine: anObject [
 ]
 
 { #category : #'accessing - derived' }
-SentryFrame >> fileNameFor: aMethod [
-	^ self filetreeFileNameFor: aMethod
+SentryFrame >> fileNameFor: aMethod methodClass: aMethodClass [
+	^ self filetreeFileNameFor: aMethod methodClass: aMethodClass
 ]
 
 { #category : #accessing }
@@ -86,26 +86,24 @@ SentryFrame >> filename: anObject [
 	filename := anObject
 ]
 
-{ #category : #'accessing - convenience' }
-SentryFrame >> filenameFromMethod: aMethod [
-	self filename: (self fileNameFor: aMethod)
+{ #category : #'as yet unclassified' }
+SentryFrame >> filenameFromMethod: aMethod methodClass: aMethodClass [
+	self filename: (self fileNameFor: aMethod methodClass: aMethodClass)
 ]
 
 { #category : #'accessing - derived' }
-SentryFrame >> filetreeFileNameFor: aMethod [
+SentryFrame >> filetreeFileNameFor: aMethod methodClass: aMethodClass [
 	^ String
 		streamContents: [ :stream | 
-			| methodClass |
-			methodClass := aMethod methodClass.
 			stream
-				<< methodClass package name;
+				<< aMethodClass package name;
 				<< '.package';
 				<< '/'.
 			stream
-				<< methodClass theNonMetaClass name;
+				<< aMethodClass theNonMetaClass name;
 				<< '.class';
 				<< '/'.
-			methodClass isMeta
+			aMethodClass isMeta
 				ifTrue: [ stream << 'class' ]
 				ifFalse: [ stream << 'instance' ].
 			stream << '/'.
@@ -145,10 +143,10 @@ SentryFrame >> lineno: anObject [
 ]
 
 { #category : #'accessing - convenience' }
-SentryFrame >> method: aMethod [
-	self filenameFromMethod: aMethod.
+SentryFrame >> method: aMethod methodClass: aMethodClass [
+	self filenameFromMethod: aMethod methodClass: aMethodClass.
 	self function: aMethod selector.
-	self module: aMethod methodClass package name asString
+	self module: aMethodClass package name asString
 ]
 
 { #category : #accessing }
@@ -182,16 +180,14 @@ SentryFrame >> preContext: anObject [
 ]
 
 { #category : #'accessing - derived' }
-SentryFrame >> tonelFileNameFor: aMethod [
+SentryFrame >> tonelFileNameFor: aMethod methodClass: aMethodClass [
 	^ String
 		streamContents: [ :stream | 
-			| methodClass |
-			methodClass := aMethod methodClass.
 			stream
-				<< methodClass package name;
+				<< aMethodClass package name;
 				<< '/'.
 			stream
-				<< methodClass theNonMetaClass name;
+				<< aMethodClass theNonMetaClass name;
 				<< '.class.st' ]
 ]
 
