@@ -1,0 +1,17 @@
+{
+	"commentStamp" : "",
+	"super" : "Object",
+	"category" : "Sentry-Core-Model",
+	"classinstvars" : [
+		"default",
+		"autoSubmit",
+		"enableContextData",
+		"showNotification",
+		"enabled"
+	],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "Sentry",
+	"type" : "normal"
+}

@@ -1,0 +1,29 @@
+{
+	"commentStamp" : "",
+	"super" : "Object",
+	"category" : "Sentry-Core-Model",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"eventId",
+		"timestamp",
+		"logger",
+		"platform",
+		"sdk",
+		"level",
+		"culprit",
+		"serverName",
+		"release",
+		"tags",
+		"environment",
+		"modules",
+		"extra",
+		"fingerprint",
+		"message",
+		"exception",
+		"contexts"
+	],
+	"name" : "SentryEvent",
+	"type" : "normal"
+}

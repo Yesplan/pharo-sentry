@@ -1,0 +1,21 @@
+{
+	"instance" : { },
+	"class" : {
+		"autoSubmit" : "",
+		"default" : "",
+		"dsn:" : "",
+		"enabled" : "",
+		"enableContextData:" : "",
+		"dsn" : "",
+		"sdkName" : "",
+		"settingsOn:" : "",
+		"sdkVersion" : "",
+		"default:" : "",
+		"enableContextData" : "",
+		"autoSubmit:" : "",
+		"showNotification" : "",
+		"showNotification:" : "",
+		"enabled:" : "",
+		"client" : ""
+	}
+}

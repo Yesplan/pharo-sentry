@@ -1,0 +1,19 @@
+{
+	"instance" : {
+		"user:" : "",
+		"request:" : "",
+		"tags:" : "",
+		"release" : "",
+		"extra:" : "",
+		"merge:" : "",
+		"asDictionary" : "",
+		"initialize" : "",
+		"extra" : "",
+		"release:" : "",
+		"clear" : "",
+		"user" : "",
+		"tags" : "",
+		"request" : ""
+	},
+	"class" : { }
+}

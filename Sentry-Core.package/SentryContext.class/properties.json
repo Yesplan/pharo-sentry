@@ -1,0 +1,17 @@
+{
+	"commentStamp" : "",
+	"super" : "SentryBaseContext",
+	"category" : "Sentry-Core-Model",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"user",
+		"request",
+		"extra",
+		"tags",
+		"release"
+	],
+	"name" : "SentryContext",
+	"type" : "normal"
+}

@@ -1,0 +1,38 @@
+{
+	"instance" : {
+		"dsn" : "",
+		"dsnString" : "",
+		"initialize" : "",
+		"captureMessage:params:" : "",
+		"captureMessage:" : "",
+		"captureMessage:in:" : "",
+		"dsn:" : "",
+		"context" : "",
+		"sendSampleException" : "",
+		"stacktraceFor:" : "",
+		"appPackages:" : "",
+		"defaultTransport" : "",
+		"transport:" : "",
+		"captureExceptionsDuring:" : "",
+		"sendSampleMessage" : "",
+		"transport" : "",
+		"clearLastEvent" : "",
+		"captureMessage:params:in:" : "",
+		"beforeSend:" : "",
+		"isEnabled" : "",
+		"captureExceptionsDuring:in:" : "",
+		"validateDsn:" : "",
+		"captureException:in:" : "",
+		"appPackages" : "",
+		"send:" : "",
+		"breadcrumbs" : "",
+		"captureException:" : "",
+		"isMethodInApp:methodClass:" : "",
+		"lastEvent" : "",
+		"recordBreadcrumbIn:" : "",
+		"resetBreadcrumbs" : ""
+	},
+	"class" : {
+		"dsn:" : ""
+	}
+}

@@ -1,0 +1,13 @@
+{
+	"instance" : {
+		"reportUrlFor:" : "",
+		"send:to:" : "",
+		"initialize" : "",
+		"postClient:" : "",
+		"processException:" : "",
+		"authHeaderFor:" : "",
+		"userAgent" : "",
+		"processResponse:" : ""
+	},
+	"class" : { }
+}

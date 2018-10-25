@@ -1,0 +1,13 @@
+{
+	"instance" : {
+		"testMessage" : "",
+		"sampleEvent" : "",
+		"testIsoTimestampFor" : "",
+		"testUUIDFor" : "",
+		"setUp" : "",
+		"testMessageComplex" : "",
+		"testAsDictionary" : "",
+		"testException" : ""
+	},
+	"class" : { }
+}

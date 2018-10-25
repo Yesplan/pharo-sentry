@@ -1,0 +1,15 @@
+{
+	"instance" : {
+		"id" : "",
+		"requestProceed" : "",
+		"defaultOrder" : "",
+		"sendReportFor:" : "",
+		"executeAction" : "",
+		"defaultLabel" : "",
+		"appliesToDebugger:" : "",
+		"forDebugger:" : ""
+	},
+	"class" : {
+		"actionType" : ""
+	}
+}

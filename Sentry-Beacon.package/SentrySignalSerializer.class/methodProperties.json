@@ -1,0 +1,12 @@
+{
+	"instance" : {
+		"serializeSignal:logger:" : "",
+		"serializeBeaconSignal:logger:" : "",
+		"eventFor:" : "",
+		"stacktraceFor:exception:" : "",
+		"serializeStringSignal:logger:" : "",
+		"serializeWrapperSignal:logger:" : "",
+		"serializeExceptionSignal:logger:" : ""
+	},
+	"class" : { }
+}

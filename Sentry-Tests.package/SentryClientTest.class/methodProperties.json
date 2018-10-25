@@ -1,0 +1,26 @@
+{
+	"instance" : {
+		"sampleDsn" : "",
+		"testCaptureException" : "",
+		"setUp" : "",
+		"testCaptureMessageParamsIn" : "",
+		"testCaptureMessageIn" : "",
+		"testBeforeSend" : "",
+		"testDsnDisablesSending" : "",
+		"testCaptureMessageParams" : "",
+		"testBreadcrumbsAreSent" : "",
+		"testIsMethodInApp" : "",
+		"testLastFrameStacktraceForException" : "",
+		"testLastFrameVarsStacktraceForException" : "",
+		"testDsnCreate" : "",
+		"testBreadcrumbsAreCleanedUp" : "",
+		"testValidateDsn" : "",
+		"testCaptureExceptionIn" : "",
+		"testCaptureMessage" : "",
+		"testCaptureExceptionsDuring" : "",
+		"testCaptureExceptionsDuringIn" : "",
+		"testDsnDisabled" : "",
+		"testRecordBreadcrumbIn" : ""
+	},
+	"class" : { }
+}
