@@ -10,4 +10,5 @@ send: aDictionary to: aDsn
 				accept: ZnMimeType applicationJson;
 				url: (self reportUrlFor: aDsn);
 				entity: (ZnEntity with: (STON toJsonString: aDictionary) type: ZnMimeType applicationJson);
+				method: #POST;
 				yourself)
