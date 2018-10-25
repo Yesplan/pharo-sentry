@@ -5,10 +5,14 @@ initialize
 	timestamp := DateAndTime now.
 	logger := Sentry sdkName.
 	platform := 'other'.
-	sdk := {'name' -> Sentry sdkName.
-	'version' -> Sentry sdkVersion} asDictionary.
-	contexts := {'runtime'
-		->
-			{'name' -> 'Pharo'.
-			'version' -> SystemVersion current highestUpdate} asDictionary} asDictionary.
+	sdk := Dictionary new
+		at: 'name' put: Sentry sdkName;
+		at: 'version' put: Sentry sdkVersion;
+		yourself.
+	contexts := Dictionary new
+		at: 'runtime' put: (Dictionary new
+			at: 'name' put: GRPlatform current label;
+			at: 'version' put: GRPlatform current versionString;
+			yourself);
+		yourself.
 	tags := Dictionary new

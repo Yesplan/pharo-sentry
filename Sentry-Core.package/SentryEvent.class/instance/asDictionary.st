@@ -1,12 +1,13 @@
 accessing - special
 asDictionary
 	| dict |
-	dict := self requiredPayload
-		,
+	dict := self requiredPayload copy
+		addAll:
 			(SentryConverter new
 				asDictionary: self
 				keys: #(logger platform sdk)
-				optional: #(level contexts culprit serverName release tags environment modules extra fingerprint)).
+				optional: #(level contexts culprit serverName release tags environment modules extra fingerprint));
+		yourself.
 	dict
 		at: 'tags'
 		ifPresent: [ :t | 

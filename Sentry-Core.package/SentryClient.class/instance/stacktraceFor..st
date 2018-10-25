@@ -11,7 +11,8 @@ stacktraceFor: anException
 				method: method methodClass: methodClass;
 				code: (frame at: 'methodSource') start: (frame at: 'methodStart');
 				inApp: (self isMethodInApp: method methodClass: methodClass);
-				vars:
-					{'_receiver' -> (ctx receiver printStringLimitedTo: 120).
-					'_context' -> (ctx printStringLimitedTo: 120)} asDictionary ].
+				vars: (Dictionary new 
+					at: '_receiver' put: (ctx receiver printStringLimitedTo: 120);
+					at: '_context' put: (ctx printStringLimitedTo: 120);
+					yourself)].
 	^ SentryStacktrace new frames: frames reversed asArray

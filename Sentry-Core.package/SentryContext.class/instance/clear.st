@@ -1,7 +1,7 @@
 initialization
 clear
-	extra := {} asDictionary.
-	request := {} asDictionary.
-	user := {} asDictionary.
-	tags := {} asDictionary.
+	extra := Dictionary new.
+	request := Dictionary new.
+	user := Dictionary new.
+	tags := Dictionary new.
 	release := nil

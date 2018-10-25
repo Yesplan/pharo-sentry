@@ -1,4 +1,6 @@
 accessing - special
 requiredPayload
-	^ {'event_id' -> self eventIdString.
-	'timestamp' -> (self isoTimestampFor: self timestamp)} asDictionary
+	^ Dictionary new
+		at: 'event_id' put: self eventIdString;
+		at: 'timestamp' put: (self isoTimestampFor: self timestamp);
+		yourself

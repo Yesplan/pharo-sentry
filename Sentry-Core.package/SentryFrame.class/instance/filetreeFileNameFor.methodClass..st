@@ -15,5 +15,5 @@ filetreeFileNameFor: aMethod methodClass: aMethodClass
 				ifFalse: [ stream << 'instance' ].
 			stream << '/'.
 			stream
-				<< (MCFileTreeStCypressWriter fileNameForSelector: aMethod selector);
+				<< (MCFileTreeStCypressWriter new fileNameForSelector: aMethod selector);
 				<< '.st' ]

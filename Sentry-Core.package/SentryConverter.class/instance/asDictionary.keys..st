@@ -6,6 +6,6 @@ asDictionary: anObject keys: keys
 		do: [ :each | 
 			| value |
 			value := self read: anObject using: each.
-			self assert: [ value isNotNil ] description: each , ' is a mandatory argument.'.
+			self assert: [ value notNil ] description: each , ' is a mandatory argument.'.
 			dict at: each put: value ].
 	^ dict
