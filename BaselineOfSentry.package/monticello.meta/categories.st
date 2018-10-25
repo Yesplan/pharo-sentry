@@ -1,1 +1,1 @@
-SystemOrganization addCategory: 'BaselineOfSentry'!
+SystemOrganization addCategory: #BaselineOfSentry!
