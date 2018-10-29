@@ -1,3 +1,3 @@
 accessing
-tags: aCollection
-	tags := aCollection asDictionary
+tags: aDictionary
+	tags := aDictionary

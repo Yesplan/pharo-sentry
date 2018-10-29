@@ -1,5 +1,5 @@
 accessing
-user: aCollection
+user: aDictionary
 	"the base attributes are id, email, ip_address, and username"
 
-	user := aCollection asDictionary
+	user := aDictionary

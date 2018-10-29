@@ -1,3 +1,3 @@
 accessing
-request: aCollection
-	request := aCollection asDictionary
+request: aDictionary
+	request := aDictionary

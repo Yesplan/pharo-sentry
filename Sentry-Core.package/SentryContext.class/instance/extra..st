@@ -1,3 +1,3 @@
 accessing
-extra: aCollection
-	extra := aCollection asDictionary
+extra: aDictionary
+	extra := aDictionary

@@ -9,10 +9,8 @@ stacktraceFor: anException
 			methodClass := frame at: 'methodClass'.
 			SentryFrame new
 				method: method methodClass: methodClass;
-				code: (frame at: 'methodSource') start: (frame at: 'methodStart');
+				lineno: (frame at: 'methodLineNo');
+				contextLine: (frame at: 'methodContextLine');
 				inApp: (self isMethodInApp: method methodClass: methodClass);
-				vars: (Dictionary new 
-					at: '_receiver' put: (ctx receiver printStringLimitedTo: 120);
-					at: '_context' put: (ctx printStringLimitedTo: 120);
-					yourself)].
+				vars: (frame at: 'methodVars') ].
 	^ SentryStacktrace new frames: frames reversed asArray

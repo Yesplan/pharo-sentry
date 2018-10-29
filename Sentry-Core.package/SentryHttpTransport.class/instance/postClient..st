@@ -4,7 +4,7 @@ postClient: aZnClient
 		 GRPlatform current valueWithOutputFromExternalCommand: (self curlCommandFor: aZnClient) of: [ :exitStatus :output :error |
 		| stream response |
 
-		(error isEmpty) & (exitStatus = 0) ifFalse: [ NPWebHookConnectionException signal: (GRPlatform current stringWithUTF8DecodingOfByteArray: error ifInvalid: [ 'ERROR' ]) ].
+		(error isEmpty) & (exitStatus = 0) ifFalse: [ Exception signal: (GRPlatform current stringWithUTF8DecodingOfByteArray: error ifInvalid: [ 'ERROR' ]) ].
 
 		stream := output readStream.
 		response := ZnResponse readHeaderFrom: stream.
