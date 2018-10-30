@@ -7,5 +7,5 @@ asDictionary: anObject keys: keys
 			| value |
 			value := self read: anObject using: each.
 			self assert: [ value notNil ] description: each , ' is a mandatory argument.'.
-			dict at: each put: value ].
+			dict at: each asString put: value ].
 	^ dict

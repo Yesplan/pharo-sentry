@@ -7,5 +7,5 @@ asDictionary: anObject keys: keys optional: optionalKeys
 			(self read: anObject using: each)
 				ifNotNil: [ :value | 
 					(value isCollection and: [ value isEmpty ])
-						ifFalse: [ dict at: each put: value ] ] ].
+						ifFalse: [ dict at: each asString put: value ] ] ].
 	^ dict

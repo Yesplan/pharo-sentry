@@ -1,6 +1,8 @@
 running
 testAsDictionary
-	context user: {'id' -> '123'}.
+	context user: (Dictionary new
+		at: 'id' put: '123';
+		yourself).
 	context release: 'v0.9.0'.
 	self
 		assert: context asDictionary

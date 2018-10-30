@@ -1,1 +1,1 @@
-SystemOrganization addCategory: 'Sentry-Tests'!
+SystemOrganization addCategory: #'Sentry-Tests'!
