@@ -6,4 +6,4 @@ read: anObject using: aKey
 	value := selector asSymbol value: anObject.
 	^ (value isKindOf: SentryInterface)
 		ifTrue: [ value asDictionary ]
-		ifFalse: [ value ]
+		ifFalse: [ (value isKindOf: String) ifTrue: [ value replaceAll: $' with: $"  ] ifFalse: [ value ] ]
