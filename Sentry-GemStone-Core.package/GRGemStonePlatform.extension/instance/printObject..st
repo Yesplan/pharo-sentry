@@ -1,4 +1,4 @@
-*Sentry-Core
+*Sentry-GemStone-Core
 printObject: object
 
 	| objectSize objectClass instanceVariables numberOfInstanceVariables result |
