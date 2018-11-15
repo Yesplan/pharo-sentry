@@ -1,4 +1,4 @@
-*Sentry-Core
+*Sentry-Pharo-Core
 runtime
 	^ Dictionary new 
 		at: 'name' put: 'Pharo';

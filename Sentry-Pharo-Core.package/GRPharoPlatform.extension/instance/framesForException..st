@@ -1,4 +1,4 @@
-*Sentry-Core
+*Sentry-Pharo-Core
 framesForException: anException
 	^ anException signalerContext stack
 		collect: [ :ctx | 
