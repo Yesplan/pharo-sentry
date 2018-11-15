@@ -1,4 +1,4 @@
-*Sentry-Core
+*Sentry-GemStone-Core
 framesForException: anException
 	| level process frames maxLevel |
 	level := 1.
