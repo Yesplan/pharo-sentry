@@ -10,6 +10,6 @@ initialize
 		at: 'version' put: Sentry sdkVersion;
 		yourself.
 	contexts := Dictionary new
-		at: 'runtime' put: GRPlatform current runtime
+		at: 'runtime' put: GRPlatform current runtime;
 		yourself.
 	tags := Dictionary new

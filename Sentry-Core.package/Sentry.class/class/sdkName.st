@@ -1,3 +1,3 @@
 accessing
 sdkName
-	^ 'sentry-pharo'
+	^ 'sentry-pharo-gemstone'
