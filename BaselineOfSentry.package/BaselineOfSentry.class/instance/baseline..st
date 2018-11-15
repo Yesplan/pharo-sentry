@@ -15,11 +15,4 @@ baseline: spec
 		for: #(#'pharo6.x' #'pharo7.x')
 		do: [ 
 			spec package: 'Sentry-Core'
-				with: [ spec includes: #(Sentry-Pharo-Core) ] ].
-			
-	spec
-		for: #'gemstone'
-		do: [ spec 
-			spec
-				package: 'Sentry-Core'
-				with: [ spec requires: #('Sentry-GemStone-Core') ] ]
+				with: [ spec includes: #('Sentry-Pharo-Core') ] ]
