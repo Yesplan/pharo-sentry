@@ -1,5 +1,10 @@
 *Sentry-GemStone-Core
 runtime
-
-	Smalltalk at: #FixedPoint ifAbsent: [ ^ 'GemStone 2' ].
-	^ 'GemStone 3'
+	| gemStoneVersion |
+	
+	gemStoneVersion := 'GemStone 3'.
+	Smalltalk at: #FixedPoint ifAbsent: [ gemStoneVersion := 'GemStone 2' ].
+	^ Dictionary new
+		at: 'name' put: 'GemStone';
+		at: 'version' put: gemStoneVersion;
+		yourself
