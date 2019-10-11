@@ -4,9 +4,7 @@ baseline: spec
 	spec
 		for: #common
 		do: [
-			spec
-				package: 'Sentry-Core'
-				with: [ spec requires: 'Grease' ].
+			spec package: 'Sentry-Core'.
 			spec group: 'Core' with: #('Sentry-Core').
 			spec
 				group: 'default'
