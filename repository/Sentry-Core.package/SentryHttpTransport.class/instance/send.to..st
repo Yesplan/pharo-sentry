@@ -9,6 +9,6 @@ send: aDictionary to: aDsn
 				headerAt: 'X-Sentry-Auth' put: (self authHeaderFor: aDsn);
 				accept: ZnMimeType applicationJson;
 				url: (self reportUrlFor: aDsn);
-				entity: (ZnEntity with: (STON toJsonString: aDictionary) type: ZnMimeType applicationJson);
+				entity: (ZnEntity with: (aDictionary asJson) type: ZnMimeType applicationJson);
 				method: #POST;
 				yourself)
