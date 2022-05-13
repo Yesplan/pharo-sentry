@@ -12,7 +12,7 @@ framesForException: anException
 				ifNil: [ false ]
 				ifNotNil: [ :frameContents |
 					method := frameContents at: 1.	
-					stepPoint := (method  _lineNumberForStep: (process _localStepPointAt: level)).
+					stepPoint := (method  _lineNumberForStep: (process _stepPointAt: level)).
 					argAndTempNames := Dictionary new.
 					(frameContents at: 9) keysAndValuesDo: [ :index :name |
 						argAndTempNames at: (name asString) put: (self printObject: (frameContents at: 10 + index)) ].
