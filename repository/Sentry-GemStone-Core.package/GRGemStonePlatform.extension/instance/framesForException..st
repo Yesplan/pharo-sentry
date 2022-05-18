@@ -25,10 +25,10 @@ framesForException: anException
 						at: 'method' put: homeMethod;
 						at: 'methodClass' put: method inClass;
 						at: 'methodLineNo' put: stepPoint asString;
-						at: 'methodContextLine' put: (((method sourceString lines) at: stepPoint) replaceAll: $' with: $");
+						at: 'methodContextLine' put: ((method sourceString lines) at: stepPoint);
 						at: 'methodVars' put: argAndTempNames;
-						at: 'methodPreContext' put: (preContextLines collect: [ :line | line replaceAll: $' with: $" ]);
-						at: 'methodPostContext' put: (postContextLines collect: [ :line | line replaceAll: $' with: $" ]);
+						at: 'methodPreContext' put: preContextLines;
+						at: 'methodPostContext' put: postContextLines;
 						yourself).
 					true ] ] ] whileTrue: [ level := level + 1 ].
 	^ frames

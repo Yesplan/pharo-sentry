@@ -19,4 +19,4 @@ printObject: object
 	result
 		addAll: '] ';
 		addAll: ([ object printStringLimitedTo: 50 ] on: Error do: [ :err | '<error printing object>' ]).
-	^ result replaceAll: $' with: $"
+	^ result

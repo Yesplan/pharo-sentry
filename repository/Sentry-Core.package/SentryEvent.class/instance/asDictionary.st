@@ -16,7 +16,7 @@ asDictionary
 	self message
 		ifNotNil: [ :msg | 
 			msg isString
-				ifTrue: [ dict at: 'message' put: (msg replaceAll: $' with: $" )]
+				ifTrue: [ dict at: 'message' put: msg ]
 				ifFalse: [ dict at: 'sentry.interfaces.Message' put: msg asDictionary ] ].
 	self exception ifNotNil: [ :ex | dict at: 'exception' put: ex asDictionary ].
 	^ dict
