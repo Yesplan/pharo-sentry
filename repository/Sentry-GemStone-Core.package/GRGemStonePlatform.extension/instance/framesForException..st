@@ -1,17 +1,19 @@
 *Sentry-GemStone-Core
 framesForException: anException
-	| level process frames maxLevel |
+	| isGS3 level process frames maxLevel |
+	isGS3 := self isGemStone3.
 	level := 1.
 	maxLevel := 40.
 	process := GsProcess continuationFromLevel: 1.
 	frames := OrderedCollection new.
-	[	|  method stepPoint argAndTempNames methodLines preContextLines postContextLines |
+	[	|  method homeMethod stepPoint argAndTempNames methodLines preContextLines postContextLines |
 		(level >= maxLevel)
 			ifTrue: [ false ]
 			ifFalse: [ (process _frameContentsAt: level)
 				ifNil: [ false ]
 				ifNotNil: [ :frameContents |
 					method := frameContents at: 1.	
+					homeMethod := isGS3 ifFalse: [ method ] ifTrue: [ method homeMethod ].
 					stepPoint := (method  _lineNumberForStep: (process _stepPointAt: level)).
 					argAndTempNames := Dictionary new.
 					(frameContents at: 9) keysAndValuesDo: [ :index :name |
@@ -20,7 +22,7 @@ framesForException: anException
 					preContextLines := methodLines copyFrom: (1 max: (stepPoint -5)) to: stepPoint - 1.
 					postContextLines := methodLines copyFrom: (stepPoint + 1) to: (methodLines size min: (stepPoint + 5)).
 					frames add: (Dictionary new
-						at: 'method' put: method;
+						at: 'method' put: homeMethod;
 						at: 'methodClass' put: method inClass;
 						at: 'methodLineNo' put: stepPoint asString;
 						at: 'methodContextLine' put: (((method sourceString lines) at: stepPoint) replaceAll: $' with: $");
