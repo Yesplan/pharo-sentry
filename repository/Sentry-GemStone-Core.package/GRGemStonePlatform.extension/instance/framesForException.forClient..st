@@ -15,7 +15,11 @@ framesForException: exception forClient: sentryClient
 		stepPoint := (method  _lineNumberForStep: (process _stepPointAt: level)).
 		argAndTempNames := Dictionary new.
 		(frameContents at: 9) keysAndValuesDo: [ :index :name |
-			argAndTempNames at: (name asString) put: (self printObject: (frameContents at: 10 + index)) ].
+			| valueIndex |
+			valueIndex := 10 + index.
+			argAndTempNames
+				at: name asString
+				put: (valueIndex <= frameContents size ifTrue: [ self printObject: (frameContents at: valueIndex) ] ifFalse: [ '<no value>' ]) ].
 		methodLines := method sourceString lines.
 		preContextLines := methodLines copyFrom: (1 max: (stepPoint -5)) to: stepPoint - 1.
 		postContextLines := methodLines copyFrom: (stepPoint + 1) to: (methodLines size min: (stepPoint + 5)).
