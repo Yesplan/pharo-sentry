@@ -20,13 +20,17 @@ framesForException: exception forClient: sentryClient
 		preContextLines := methodLines copyFrom: (1 max: (stepPoint -5)) to: stepPoint - 1.
 		postContextLines := methodLines copyFrom: (stepPoint + 1) to: (methodLines size min: (stepPoint + 5)).
 		(frame := SentryFrame new)
-			method: homeMethod methodClass: method inClass;
 			lineno: stepPoint asString;
 			contextLine: ((method sourceString lines) at: stepPoint);
 			preContext: preContextLines;
 			postContext: postContextLines;
-			inApp: (sentryClient isMethodInApp: homeMethod methodClass: method inClass);
 			vars: argAndTempNames.
+		method inClass ifNotNil: [ :mClass |
+			frame
+				method: homeMethod methodClass: method inClass;
+				inApp: (sentryClient isMethodInApp: homeMethod methodClass: method inClass)
+		] ifNil: [
+			frame filename: 'Executed Code' ].
 		frames add: frame.
 		level := level + 1 ].
 	^ frames
