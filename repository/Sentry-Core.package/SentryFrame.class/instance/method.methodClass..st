@@ -1,5 +1,7 @@
 accessing - convenience
-method: aMethod methodClass: aMethodClass
-	self filenameFromMethod: aMethod methodClass: aMethodClass.
-	self function: aMethod selector.
-	self module: aMethodClass package name asString
+method: method methodClass: methodClass
+
+	self filenameFromMethod: method methodClass: methodClass.
+	self function: (String streamContents: [ :stream |
+		stream nextPutAll: methodClass name; nextPutAll: '>>#'; nextPutAll: method selector ]).
+	self module: methodClass package name asString
