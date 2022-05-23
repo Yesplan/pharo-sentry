@@ -5,7 +5,7 @@ framesForException: exception forClient: sentryClient
 		collect: [ :ctx | 
 			| method interval lines line |
 			method := ctx method.
-			interval := ctx debuggerMap rangeForPC: ctx pc.
+			interval := ctx debuggerMap rangeForPC: ctx pc contextIsActiveContext: false.
 			lines := method sourceCode lines.
 			line := (method sourceCode lineNumberCorrespondingToIndex: interval first).
 			SentryFrame new
