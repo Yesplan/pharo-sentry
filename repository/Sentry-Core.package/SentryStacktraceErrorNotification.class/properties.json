@@ -1,0 +1,14 @@
+{
+	"commentStamp" : "",
+	"super" : "GRNotification",
+	"category" : "Sentry-Core-Utils",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"tracedException",
+		"tracingError"
+	],
+	"name" : "SentryStacktraceErrorNotification",
+	"type" : "normal"
+}
