@@ -3,7 +3,7 @@ filetreeFileNameFor: aMethod methodClass: aMethodClass
 	^ String
 		streamContents: [ :stream | 
 			stream
-				<< aMethodClass package name;
+				<< (aMethodClass package ifNotNil: [ :packageInfo | packageInfo name ] ifNil: [ aMethodClass category ]);
 				<< '.package';
 				<< '/'.
 			stream
