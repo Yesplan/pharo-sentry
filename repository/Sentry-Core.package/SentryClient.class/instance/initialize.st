@@ -9,4 +9,5 @@ initialize
 	self appPackages isString
 		ifTrue: [ self appPackages asRegex search: aMethodClass package name ]
 		ifFalse: [ self appPackages includes: aMethodClass package ] ].
-	beforeSend := [ :anEvent |  ]
+	beforeSend := [ :anEvent |  ].
+	includeStackTemps := false

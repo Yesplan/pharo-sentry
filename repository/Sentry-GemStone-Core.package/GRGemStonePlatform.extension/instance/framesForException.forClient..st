@@ -1,9 +1,10 @@
 *Sentry-GemStone-Core
 framesForException: exception forClient: sentryClient
 
-	| isGS3 level process frames maxLevel frameContents |
+	| isGS3 includeStackTemps level process frames maxLevel frameContents |
 
 	isGS3 := self isGemStone3.
+	includeStackTemps := sentryClient includeStackTemps.
 	level := 1.
 	maxLevel := 40.
 	process := GsProcess continuationFromLevel: 1.
@@ -17,9 +18,10 @@ framesForException: exception forClient: sentryClient
 		(frameContents at: 9) keysAndValuesDo: [ :index :name |
 			| valueIndex |
 			valueIndex := 10 + index.
-			argAndTempNames
-				at: name asString
-				put: (valueIndex <= frameContents size ifTrue: [ self printObject: (frameContents at: valueIndex) ] ifFalse: [ '<no value>' ]) ].
+			(includeStackTemps or: [ (name size >= 2 and: [ (name at: 1) = $. and: [ (name at: 2) = $t ] ]) not ]) ifTrue: [
+				argAndTempNames
+					at: name asString
+					put: (valueIndex <= frameContents size ifTrue: [ self printObject: (frameContents at: valueIndex) ] ifFalse: [ '<no value>' ]) ] ].
 		methodLines := method sourceString lines.
 		preContextLines := methodLines copyFrom: (1 max: (stepPoint -5)) to: stepPoint - 1.
 		postContextLines := methodLines copyFrom: (stepPoint + 1) to: (methodLines size min: (stepPoint + 5)).

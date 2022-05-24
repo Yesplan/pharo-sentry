@@ -13,7 +13,8 @@
 		"isInApp",
 		"beforeSend",
 		"transport",
-		"lastEvent"
+		"lastEvent",
+		"includeStackTemps"
 	],
 	"name" : "SentryClient",
 	"type" : "normal"
