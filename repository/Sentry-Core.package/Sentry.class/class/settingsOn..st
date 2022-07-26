@@ -2,7 +2,6 @@ settings
 settingsOn: aBuilder
 	<systemsettings>
 	(aBuilder group: #sentry)
-		parent: #privacy;
 		label: 'Sentry Error Tracking';
 		noOrdering;
 		with: [ (aBuilder setting: #enabled)
