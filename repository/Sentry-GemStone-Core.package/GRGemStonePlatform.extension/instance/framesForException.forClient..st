@@ -26,7 +26,7 @@ framesForException: exception forClient: sentryClient
 		preContextLines := methodLines copyFrom: (1 max: (stepPoint -5)) to: stepPoint - 1.
 		postContextLines := methodLines copyFrom: (stepPoint + 1) to: (methodLines size min: (stepPoint + 5)).
 		(frame := SentryFrame new)
-			lineno: stepPoint asString;
+			lineno: stepPoint;
 			contextLine: ((method sourceString lines) at: stepPoint);
 			preContext: preContextLines;
 			postContext: postContextLines;
