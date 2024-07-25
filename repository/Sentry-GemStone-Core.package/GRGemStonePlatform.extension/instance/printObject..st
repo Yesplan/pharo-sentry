@@ -7,8 +7,6 @@ printObject: object
 
 	objectSize := Reflection sizeOf: object.
 	objectClass := Reflection classOf: object.
-	(objectClass includesBehavior: CharacterCollection) ifTrue: [ ^ self asString].
-	(objectClass includesBehavior: ByteArray) ifTrue: [ ^ self asString].
 	
 	result addAll: ' [oop:'.
 	result addAll: (Reflection oopOf: object) asString.
