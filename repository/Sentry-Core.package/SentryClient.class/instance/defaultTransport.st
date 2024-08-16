@@ -1,3 +1,3 @@
 accessing
 defaultTransport
-	^ SentryHttpTransport new
+	^ SentryCurlHttpTransport new

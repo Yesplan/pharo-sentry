@@ -1,0 +1,11 @@
+{
+	"commentStamp" : "",
+	"super" : "SentryHttpTransport",
+	"category" : "Sentry-Core-Model",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "SentryCurlHttpTransport",
+	"type" : "normal"
+}
