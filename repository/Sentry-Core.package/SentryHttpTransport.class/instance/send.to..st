@@ -3,7 +3,7 @@ send: aDictionary to: aDsn
 	enableNotifications := aDictionary includesKey: 'exception'.
 	self
 		postClient:
-			(ZnClient new
+			(self clientClass new
 				beOneShot;
 				headerAt: 'User-Agent' put: self userAgent;
 				headerAt: 'X-Sentry-Auth' put: (self authHeaderFor: aDsn);
