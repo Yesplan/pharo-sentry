@@ -1,4 +1,0 @@
-private
-clientClass
-
-	^ ZnClient
